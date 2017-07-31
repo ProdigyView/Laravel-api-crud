@@ -34,9 +34,9 @@ With a controller like the one below we are going to:
 * Set universal standards for accessing data that all developers will use
 
 The mobile/javascript team will simply just have to define a route and pass the right parameters to get the data they want. This is done by the following url:
-
+```
 /crud/users?conditions=[{active: 0}]&order_by=registration_date&limit=5
-
+```
 Thats all the javascript/mobile team has to call to get the same results with the above. They are free to change the parameters as needed on their end without and the only QA that is required is in their section. They can use the same methods for calling ANY model and even calling methods in models.
 
 ## How To Install
