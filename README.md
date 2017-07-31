@@ -4,10 +4,12 @@ This controller is designed to allow rapid protopying of the applications by pro
 In Laravel, writing api routes requires a lot of coordination between the mobile team/javascript team and api team, even for simple operations. For example, if a mobile developer wanted to search for users that recently registered but are NOT active and to order it by registration date, we would have to:
 #### Define New Api Route
 ```
+<?php
 Route::get('/users/getlatest', 'UsersController::getLatestRegistrations')
 ```
-#### Write out a controller function
+#### Then Write out a controller function
 ```
+<?php
 class UsersController extends Controller {
     public function getLatestRegistrations() {
         $results = Users::where('is_active',0)->orderBy('registration_date') -> get();
@@ -30,6 +32,7 @@ This controller should added as vendor within a project. Please clone this down 
 ### Setuping up the routes
 First you will need to setup your routes to correctly access the funtionality. Add the following to your router file in Laravel and change the paths as needed to fit your environment.
 ```
+<?php
 Route::get('/crud/{model}', 
 'Reflexions\Laravel\Controllers\CrudController@query');
 Route::get('/crud/{model}/{id}', 
@@ -62,6 +65,7 @@ In some instances, you may want to map your models because:
 
 Using a service provider, you can pass in paramters to and set the model map. For example:
 ```
+<?php
 $map = array(
     'accounts' = "App\Models\Users",
     'entries'=> "Vendors\Tumblr\Posts"
@@ -106,6 +110,7 @@ $.ajax({
 ##### With
 In Laraval, one way of doing joins is with the "with" options. Remember the with operationsin Laravel should be defined IN THE MODEL. For example, this is with the author:
 ```
+<?php
 class Posts extends Model {
     pubic function author() {
          return $this->belongsTo(User::class, 'user_id');
@@ -147,7 +152,8 @@ $.ajax({
 Sometimes you will have to run very complex operations that a query cannot easily solve. Complex operations should be defined in the model, not controllers and by following that thinking, we can access those functions via the api. Let's see I want to send a push notification to a user.
 
 ```
-class Userss extends Model {
+<?php
+class Users extends Model {
     public function logout() {
         //End the Users Session
     }
