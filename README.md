@@ -27,16 +27,23 @@ Instead an approach like a universal crud controllers allows use to quickly and 
 This controller should added as vendor within a project. Please clone this down to your project with the following:...coming sonng
 
 ## How It Works
-###Setupping up the routes
+### Setupping up the routes
 First you will need to setup your routes to correctly access the funtionality. Add the following to your router file in Laravel and change the paths as needed to fit your environment.
 ```
-Route::get('/crud/{model}', 'Reflexions\Laravel\Controllers\CrudController@query');
-Route::get('/crud/{model}/{id}', 'Reflexions\Laravel\Controllers\CrudController@query')->where('id', '[0-9]+');;
-Route::post('/crud/{model}', 'Reflexions\Laravel\Controllers\CrudController@create');
-Route::post('/crud/{model}/{function}', 'Reflexions\Laravel\Controllers\CrudController@execute');
-Route::post('/crud/{model}/{function}/{id}', 'Reflexions\Laravel\Controllers\CrudController@execute')->where('id', '[0-9]+');;
-Route::put('/crud/{model}/{id}', 'Reflexions\Laravel\Controllers\CrudController@update')->where('id', '[0-9]+');;
-Route::delete('/crud/{model}', 'Reflexions\Laravel\Controllers\CrudController@delete');
+Route::get('/crud/{model}', 
+'Reflexions\Laravel\Controllers\CrudController@query');
+Route::get('/crud/{model}/{id}', 
+'Reflexions\Laravel\Controllers\CrudController@query')->where('id', '[0-9]+');;
+Route::post('/crud/{model}', 
+'Reflexions\Laravel\Controllers\CrudController@create');
+Route::post('/crud/{model}/{function}', 
+'Reflexions\Laravel\Controllers\CrudController@execute');
+Route::post('/crud/{model}/{function}/{id}', '
+Reflexions\Laravel\Controllers\CrudController@execute')->where('id', '[0-9]+');;
+Route::put('/crud/{model}/{id}', 
+'Reflexions\Laravel\Controllers\CrudController@update')->where('id', '[0-9]+');;
+Route::delete('/crud/{model}', 
+'Reflexions\Laravel\Controllers\CrudController@delete');
 ```
 You can change the paths, but the variables {model}, {function} and {id} MUST remain the same.
 
