@@ -27,7 +27,7 @@ Instead an approach like a universal crud controllers allows use to quickly and 
 This controller should added as vendor within a project. Please clone this down to your project with the following:...coming sonng
 
 ## How It Works
-### Setupping up the routes
+### Setuping up the routes
 First you will need to setup your routes to correctly access the funtionality. Add the following to your router file in Laravel and change the paths as needed to fit your environment.
 ```
 Route::get('/crud/{model}', 
@@ -57,7 +57,7 @@ Just by switching the model name, we can change the model being accessed. When y
 
 ### Model Mapping
 In some instances, you may want to map your models because:
-* Security to note expose the actual name of your models
+* Security to not expose the actual name of your models
 * You have models in funky places that do not follow a set structure
 
 Using a service provider, you can pass in paramters to and set the model map. For example:
