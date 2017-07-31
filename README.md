@@ -1,6 +1,7 @@
 # Reflexions API CRUD Controller
 This controller is designed to allow rapid protopying of the applications by providing a robust, standardized way that allows javascript applications and mobile applications to easily communicate with a database. The methods mentioned in this repo are designed for Laravel's MVC.
 ## Thinking Behind Implementation
+### The Problem: Unneccessary Requirements For Basic Operations
 In Laravel, writing api routes requires a lot of coordination between the mobile team/javascript team and api team, even for simple operations. For example, if a mobile developer wanted to search for users that recently registered but are NOT active and to order it by registration date, we would have to:
 #### Define New Api Route
 ```
@@ -24,6 +25,19 @@ This method often has the following extended development requirements:
 * Often does not scale well as development requirements change with new or different functionality
 
 Instead an approach like a universal crud controllers allows use to quickly and flexibility write code that easily changed with requirements and is easier to push to production.
+
+### Solution: Implement A Solution That Requires Less Work/People/Processes
+With a controller like the one below we are going to:
+* Cut out a portion of the QA processes needed to validate good code
+* Not write extra routes and controller functions
+* Require no interaction with the API team for implemention
+* Set standard access for access also data
+
+The mobile/javascript team will simply just have to define a route and pass the right parameters to get the data they want. This is done by the following url:
+
+/crud/users?conditions=[{active: 0}]&order_by=registration_date&limit=5
+
+Thats all the javascript/mobile team has to call to get the same results with the above. They are free to change the parameters as needed on their end without and the only QA that is required is in their section. They can use the same methods for calling ANY model and even calling methods in models.
 
 ## How To Install
 This controller should added as vendor within a project. Please clone this down to your project with the following:...coming sonng
