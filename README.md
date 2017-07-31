@@ -102,7 +102,7 @@ $.ajax({
 ```
 ### Searching For An Item
 In the CRUD api, we can easily search on any model. In our next examples, we might want to search for posts in the system. We need to first understand the parameters we can use.
-##### Conditions
+#### Conditions
 Conditions relates to the WHERE clause in your sql. If want to search where posts are published AND on the home page, we can post conditions like this:
 ```
 $.ajax({
@@ -121,7 +121,7 @@ $.ajax({
   success: function(response) {},
 });
 ```
-##### With
+#### With
 In Laraval, one way of doing joins is with the "with" options. Remember the with operationsin Laravel should be defined IN THE MODEL. For example, this is with the author:
 ```
 <?php
@@ -144,7 +144,7 @@ $.ajax({
 });
 ```
 
-#### Joins
+### Joins
 We can also explicity define joins on our tables directly. On your post table, lets join the users table and an image table.
 
 ```
@@ -163,10 +163,11 @@ $.ajax({
 ```
 
 ### Calling A Models Functions
-Sometimes you will have to run very complex operations that a query cannot easily solve. Complex operations should be defined in the model, not controllers and by following that thinking, we can access those functions via the api. Let's see I want to send a push notification to a user.
+Sometimes you will have to run very complex operations that a query cannot easily solve. Complex operations should be defined in the model, not controllers and by following that thinking, we can access those functions via the api. Let's imageine you want to log a user out and send a push notification.
 
 ```
 <?php
+//Our model
 class Users extends Model {
     public function logout() {
         //End the Users Session
@@ -186,7 +187,7 @@ $.ajax({
 });
 ```
 
-To send a message to a user:
+To send a message to a user and pass variables to that function, we can define out route like below:
 ```
 $.ajax({
   type: "POST",
