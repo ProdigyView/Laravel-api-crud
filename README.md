@@ -104,7 +104,7 @@ $.ajax({
 });
 ```
 ##### With
-In Laraval, one way of doing joins is with the "with" options. Remember the WITHS should be defined IN THE MODEL. For example, this is with the author:
+In Laraval, one way of doing joins is with the "with" options. Remember the with operationsin Laravel should be defined IN THE MODEL. For example, this is with the author:
 ```
 class Posts extends Model {
     pubic function author() {
