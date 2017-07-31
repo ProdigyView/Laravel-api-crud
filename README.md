@@ -31,7 +31,7 @@ With a controller like the one below we are going to:
 * Cut out a portion of the QA processes needed to validate good code
 * Not write extra routes and controller functions
 * Require no interaction with the API team for implemention
-* Set standard access for access also data
+* Set universal standards for accessing data that all developers will use
 
 The mobile/javascript team will simply just have to define a route and pass the right parameters to get the data they want. This is done by the following url:
 
